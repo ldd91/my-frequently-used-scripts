@@ -1,0 +1,18 @@
+#t.txt 文件里面的内容为 aa:bb:cc
+#如果 t.txt 的第一个分隔符前面的字符串不包含 a,那么打印第二个字符串
+awk -F : '{if($1!~a)print $2}' t.txt
+#如果 t.txt 的第一个分隔符前面的字符串不包含 a,那么打印第二个字符串
+awk -F : '{if($1~a)print $2}' t.txt
+#打印第1域中第一个字符是a的记录，符号’^’代表行首，符合’.’代表任意字符
+awk '$1 ~/^.a/' t.txt
+#格式化输出第二跟六域的字符
+awk '{printf $2 "\t" $6 "\n"}' t.txt
+df -h | awk '{print $1 "\t" $3}'
+#BEGIN 是 awk 的保留字，会在读取文件之前先执行
+awk 'BEGIN{printf "This is a transcript\n"} {printf $2 "\t" $6 "\n"}' t.txt
+awk -F :  'BEGIN{printf "This is a transcript\n"} {printf $1 "\t" $3 "\n"}' t.txt
+#打印包含 bb 的行
+awk '/bb/{print}' t.txt
+
+# awk 做流程控制，例如打印第四个分割域成为大于 90 的人
+awk '{if (NR>=2) {if ($4>90) printf $2" is a good man!\n"}}' t.txt
