@@ -30,8 +30,8 @@ echo "开始下载镜像"
   install_fluidimage
   install_alluxioimage
 echo "镜像已经打包完毕"
-echo "开始上传镜像到 10.10.20.230"
-scp ./*tar  lvdongdong@10.10.20.230:/home/lvdongdong/import
+echo "开始上传镜像到 xx.xx.xx.xx"
+scp ./*tar  lvdongdong@xx.xx.xx.xx:/home/xx/import
 echo "镜像上传完毕"
 }
 main
